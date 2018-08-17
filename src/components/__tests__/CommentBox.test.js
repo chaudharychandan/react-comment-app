@@ -2,12 +2,17 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import CommentBox from 'components/CommentBox';
+import Root from 'Root';
 
 describe('<CommentBox />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<CommentBox />);
+    wrapper = mount(
+      <Root>
+        <CommentBox />
+      </Root>
+    );
   });
 
   it('has a textarea and a button', () => {
