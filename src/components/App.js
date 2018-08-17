@@ -1,12 +1,12 @@
 import React from 'react';
-import CommentList from 'components/CommentList';
 import CommentBox from 'components/CommentBox';
+import CommentList from 'components/CommentList';
 
 export default () => {
   return (
     <div>
-      <CommentList />
       <CommentBox />
+      <CommentList />
     </div>
   );
 };
