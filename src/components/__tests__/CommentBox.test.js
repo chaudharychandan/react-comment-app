@@ -15,12 +15,24 @@ describe('<CommentBox />', () => {
     expect(wrapper.find('button').length).toEqual(1);
   });
 
-  it('has a textarea that users can type in', () => {
+  describe('the text area', () => {
     const input = 'new comment';
-    wrapper.find('textarea').simulate('change', { target: { value: input } });
-    wrapper.update();
 
-    expect(wrapper.find('textarea').prop('value')).toEqual(input);
+    beforeEach(() => {
+      wrapper.find('textarea').simulate('change', { target: { value: input } });
+      wrapper.update();
+    });
+
+    it('has a textarea that users can type in', () => {
+      expect(wrapper.find('textarea').prop('value')).toEqual(input);
+    });
+
+    it('empties the textarea when form is submitted', () => {
+      wrapper.find('form').simulate('submit');
+      wrapper.update();
+
+      expect(wrapper.find('textarea').prop('value')).toEqual('');
+    });
   });
 
   afterEach(() => {
