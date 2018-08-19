@@ -8,8 +8,9 @@ describe('<CommentBox />', () => {
   let wrapper;
 
   beforeEach(() => {
+    let initialState = { comments: [], auth: true };
     wrapper = mount(
-      <Root>
+      <Root initialState={initialState}>
         <CommentBox />
       </Root>
     );
@@ -42,5 +43,5 @@ describe('<CommentBox />', () => {
 
   afterEach(() => {
     wrapper.unmount();
-  })
+  });
 });
